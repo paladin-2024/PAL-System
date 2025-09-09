@@ -1,6 +1,7 @@
 import React from "react";
 import "./LoginSignUp.css";
 import password_icon from "../assets/padlock (2).png";
+import otp_icon from "../assets/otp.png";
 import {useState} from "react";
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input'
@@ -9,6 +10,8 @@ import flags from 'react-phone-number-input/flags'
 const LoginSignUp = () => {
     const [value, setValue] = useState();
     const [action, setAction] = useState("Sign Up");
+    const [otp, setOtp] = useState("");
+
 
     return (
 
@@ -31,6 +34,18 @@ const LoginSignUp = () => {
                     <img src={password_icon} alt=""/>
                     <input type="password" placeholder="Enter password"/>
                 </div>
+                {action === "Sign Up" && (
+                    <div className="input">
+                        <img src={otp_icon} alt=""/>
+                        <input
+                            type="text"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                        />
+                    </div>
+                )}
+
 
             </div>
                     <div className="remember">
